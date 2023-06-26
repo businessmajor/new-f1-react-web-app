@@ -37,9 +37,6 @@ const SpeedList = () => {
           <SpeedItem
             key={speed._id} speed={speed.speed} />)
       }
-      <pre>
-        <code>{JSON.stringify(speeds, null, 2)}</code>
-      </pre>
     </ul>
   );
 };
