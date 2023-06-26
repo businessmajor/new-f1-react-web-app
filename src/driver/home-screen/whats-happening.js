@@ -6,10 +6,11 @@ import { BsEmojiSmile } from 'react-icons/bs';
 import { TiCalendar } from 'react-icons/ti';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { createSpeedThunk} from  '../speeds-thunks';
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 //import { Avatar } from 'mui';
 
 function WhatsHappening() {
+    const { currentUser } = useSelector((state) => state.users);
     const [speed, setSpeed] = useState("");
     const [allSpeeds, setAllSpeeds] = useState([]);
     const [speedInput, setSpeedInput] = useState('');
@@ -30,6 +31,7 @@ function WhatsHappening() {
             try {
                 const speeds = await speedsService.findAllSpeeds();
                 setAllSpeeds(speeds);
+                setSpeedInput("");
             } catch (error) {
                 console.error(error);
             }
@@ -42,10 +44,10 @@ function WhatsHappening() {
             topic: "f1",
             title: "f1",
             speed: speed,
-            username: "alice"
+            username: currentUser.data.username
         }
         try {
-            await speedsService.createSpeed(newSpeed,"64952694155b190206608300")//{ speed: speed });
+            await speedsService.createSpeed(newSpeed, currentUser.data._id)//{ speed: speed });
             setSpeed("");
         } catch (error) {
             console.error(error);
