@@ -1,9 +1,9 @@
 import axios from "axios";
 
-//const SERVER = "http://localhost:4000";
+const SERVER = "http://localhost:4000";
 // const USER_API = `${SERVER}/users`;
 // const BASE_API = `${SERVER}/api`;
-const SERVER = process.env.REACT_APP_API_BASE;
+//const SERVER = process.env.REACT_APP_API_BASE;
 const BASE_API = `${SERVER}/api`;
 const USER_API = `${SERVER}/users`;
 

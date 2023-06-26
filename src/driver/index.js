@@ -7,8 +7,12 @@ import ProtectedRoute from "../users/protected-route";
 import Login from "../users/login"
 import Register from "../users/register"
 import NextRace from "../driver/components/races/next_race";
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from "./reducers/auth-reducer";
 // import { Provider } from "react-redux";
 // import { store } from "./store";
+const store = configureStore(
+  { reducer: { user: authReducer } });
 
 function Driver() {
   return (

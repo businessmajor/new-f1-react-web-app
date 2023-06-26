@@ -9,9 +9,9 @@ function HomeScreen() {
   return (
     <div>
       <h1 className="text-danger fw-bold" style={{ fontFamily: "Helvetica" }}>Home</h1>
-      {//currentUser && (
-        <WhatsHappening />
-      };
+      {currentUser && (
+        <WhatsHappening />)
+      }
       <SpeedList/> 
     </div>
   );
