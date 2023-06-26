@@ -1,11 +1,11 @@
 import axios from "axios";
 
-// const SERVER = "https://stock-node-server-app.onrender.com";
-// const BASE_API = `${SERVER}/api`;
-// should be https://f1-node-server-app.onrender.com or localhost:4000
-const SERVER = process.env.REACT_APP_API_BASE;
+const SERVER = "https://stock-node-server-app.onrender.com";
 const BASE_API = `${SERVER}/api`;
-const SPEEDS_API = `${SERVER}/speeds`;
+// should be https://f1-node-server-app.onrender.com or localhost:4000
+// const SERVER = process.env.REACT_APP_API_BASE;
+// const BASE_API = `${SERVER}/api`;
+const SPEEDS_API = `${BASE_API}/speeds`;
 
 const request = axios.create({
   withCredentials: true,
