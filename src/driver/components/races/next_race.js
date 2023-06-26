@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNextRace } from './api/get_next_race';
-import { Card, Typography } from '@mui/material';
+import { Box, Card, Divider, Typography } from '@mui/material';
 import CircuitFlag from '../circuits/flags';
 
 
@@ -30,20 +30,17 @@ function NextRace() {
         +nRminutes
       );
 
-
-
-
-
-
       return (
         <Card className="max-w-lg mx-auto mt-32">
           <div className="text-center">
-            <Typography variant="h5" component="div">
-              Next Race
-            </Typography>
-
+            <Box bgcolor="black">
+              <Typography variant="h5" component="div" color={'white'}>
+                Next Race
+              </Typography>
+            </Box>
+            <Divider sx={{ my: 1 }} />
             <CircuitFlag circuitId={nextRaceCircuit.circuitId} />
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Typography variant="h6" component="div" sx={{ marginLeft: '0.5rem' }}>
                 {nextRaceName}
               </Typography>
