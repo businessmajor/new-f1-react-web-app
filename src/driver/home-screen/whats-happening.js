@@ -47,7 +47,7 @@ function WhatsHappening() {
             username: "alice"
         }
         try {
-            await speedsService.createSpeed(newSpeed, currentUser._id)//{ speed: speed });
+            await speedsService.createSpeed(newSpeed, currentUser.data._id)//{ speed: speed });
             setSpeed("");
         } catch (error) {
             console.error(error);
