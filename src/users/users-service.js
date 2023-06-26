@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const SERVER = "https://f1-node-server-app.onrender.com";
+//const SERVER = "http://localhost:4000";
 // const USER_API = `${SERVER}/users`;
 // const BASE_API = `${SERVER}/api`;
 const SERVER = process.env.REACT_APP_API_BASE;
