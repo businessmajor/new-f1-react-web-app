@@ -1,25 +1,35 @@
-import React, { useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import SpeedItem from "./speed-item";
 import { findAllSpeedsThunk } from "../speeds-thunks";
+import { findAllSpeeds } from "../speeds-service";
+import React, { useEffect, useState } from "react";
 
 const SpeedList = () => {
   //fix state variable
   //make sure thunks work
   //make sure service works
   //make sure item works 
-  let { speeds, loading } = useSelector(state => state.speeds)
-  const dispatch = useDispatch();
+  const [speeds, setSpeeds] = useState([]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(findAllSpeedsThunk())
+  // }, [])
+
   useEffect(() => {
-    dispatch(findAllSpeedsThunk())
-  }, [])
+    const fetchSpeeds = async () => {
+      const speeds = await findAllSpeeds();
+      setSpeeds(speeds);
+    };
+    fetchSpeeds();
+  }, []);
 
   return (
     <ul className="list-group">
-      {loading &&
+      {/*loading &&
         <li className="list-group-item">
           Loading...
-        </li>
+        </li>*/
       }
       {
         
