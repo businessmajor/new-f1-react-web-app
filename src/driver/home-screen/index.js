@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import SpeedList from "./speed-list";
 
 function HomeScreen() {
+  const { currentUser } = useSelector((state) => state.users);
   return (
     <div>
       <h1 className="text-danger fw-bold" style={{ fontFamily: "Helvetica" }}>Home</h1>
