@@ -5,12 +5,25 @@ import { HiOutlineGift } from 'react-icons/hi';
 import { BsEmojiSmile } from 'react-icons/bs';
 import { TiCalendar } from 'react-icons/ti';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
+import { createSpeedThunk} from  '../speeds-thunks';
+import { useDispatch } from "react-redux";
 //import { Avatar } from 'mui';
 
 function WhatsHappening() {
     const [speed, setSpeed] = useState("");
     const [allSpeeds, setAllSpeeds] = useState([]);
-    // const dispatch = useDispatch();
+    const [speedInput, setSpeedInput] = useState('');
+    const dispatch = useDispatch();
+    const speedClickHandler = () => {
+        const newSpeed = {
+            topic: "f1",
+            title: "f1",
+            speed: speedInput,
+            username: "alice"
+        }
+        dispatch(createSpeedThunk(newSpeed, "64952694155b190206608300"));
+        setSpeedInput("");
+    }
 
     useEffect(() => {
         const fetchAllSpeeds = async () => {
@@ -25,8 +38,14 @@ function WhatsHappening() {
     }, []);
 
     const handleSpeed = async () => {
+        const newSpeed = {
+            topic: "f1",
+            title: "f1",
+            speed: speed,
+            username: "alice"
+        }
         try {
-            await speedsService.createSpeed({ speed: speed });
+            await speedsService.createSpeed(newSpeed,"64952694155b190206608300")//{ speed: speed });
             setSpeed("");
         } catch (error) {
             console.error(error);
