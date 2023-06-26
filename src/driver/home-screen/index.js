@@ -2,7 +2,7 @@ import React from "react";
 import WhatsHappening from "./whats-happening";
 import { useSelector } from "react-redux";
 // import TuitList from "../tuits/tuits-list";
-//import SpeedList from ??
+import SpeedList from "./speed-list";
 
 function HomeScreen() {
   const { currentUser } = useSelector((state) => state.users);
@@ -12,7 +12,7 @@ function HomeScreen() {
       {currentUser && (
         <WhatsHappening />
       )};
-      {/* <SpeedList/> */}
+      <SpeedList/> 
     </div>
   );
 }
