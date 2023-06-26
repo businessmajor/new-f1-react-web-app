@@ -11,7 +11,8 @@ export const FilterProvider = ({ children }) => {
             value={{
                 year,
                 setYear,
-            }}
+            }
+            }
         >
             {children}
         </context.Provider>

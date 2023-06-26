@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const SERVER = "https://f1-node-server-app.onrender.com";
+const SERVER = "https://stock-node-server-app.onrender.com";
 const USER_API = `${SERVER}/users`;
 const BASE_API = `${SERVER}/api`;
 
@@ -10,6 +10,7 @@ const request = axios.create({
 
 export const login = async (user) => {
   const response = await request.post(`${BASE_API}/login`, user);
+  console.log(BASE_API);
   return response.data;
 };
 

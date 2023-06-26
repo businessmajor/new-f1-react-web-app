@@ -8,8 +8,8 @@ function HomeScreen() {
   const { currentUser } = useSelector((state) => state.users);
   return (
     <div>
-      <h1>Home</h1>
-      {!currentUser && (
+      <h1 className="text-danger fw-bold" style={{ fontFamily: "Helvetica" }}>Home</h1>
+      {currentUser && (
         <WhatsHappening />
       )};
       {/* <SpeedList/> */}

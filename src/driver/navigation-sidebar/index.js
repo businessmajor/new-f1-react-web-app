@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { BiHome, BiCompass, BiBell, BiEnvelope, BiBookmark, BiListUl, BiUser, BiUserPlus, BiDotsHorizontal } from "react-icons/bi";
+import { BiHome, BiCompass, BiEnvelope, BiUser, BiUserPlus, BiDotsHorizontal } from "react-icons/bi";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./navigation-sidebar.css";
 
@@ -31,10 +31,10 @@ const NavigationSidebar = () => {
         <Link
           key={to}
           to={`/driver/${to}`}
-          className={`list-group-item ${active === to ? "active" : ""}`}
+          className={`list-group-item border-danger ${active === to ? "active bg-danger fw-bold" : ""}`}
         >
           <Icon className="me-2" />
-          <span className="sidebar-text">{label}</span>
+          <span className="sidebar-text" style={{ fontFamily: "Helvetica" }}>{label}</span>
         </Link>
       ))}
     </div>
