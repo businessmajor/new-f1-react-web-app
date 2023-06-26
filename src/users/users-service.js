@@ -29,7 +29,7 @@ export const logout = async () => {
 
 export const getProfile = async () => {
   const response = await request.get(`${BASE_API}/profile`);
-  return response.data;
+  return response;
 };
 
 export const getUsers = async () => {

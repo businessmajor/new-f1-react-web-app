@@ -1,7 +1,7 @@
 import React from "react";
 import WhatsHappening from "./whats-happening";
 import { useSelector } from "react-redux";
-import * as speedsService from "../speeds-service";
+// import TuitList from "../tuits/tuits-list";
 //import SpeedList from ??
 
 function HomeScreen() {

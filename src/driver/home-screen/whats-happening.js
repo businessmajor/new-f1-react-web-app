@@ -10,6 +10,7 @@ import { HiOutlineLocationMarker } from 'react-icons/hi';
 function WhatsHappening() {
     const [speed, setSpeed] = useState("");
     const [allSpeeds, setAllSpeeds] = useState([]);
+    // const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchAllSpeeds = async () => {

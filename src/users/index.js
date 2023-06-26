@@ -87,7 +87,7 @@ function Users() {
             >
               Delete
             </button>
-            {/* {user.firstName} {user.lastName} */}
+            {user.username} @ {user.team}
           </li>
         ))}
       </ul>

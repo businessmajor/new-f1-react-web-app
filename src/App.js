@@ -15,6 +15,7 @@ import ProtectedRoute from "./users/protected-route";
 import { QueryClientProvider } from '@tanstack/react-query';
 import QueryClient from "./services/react-query";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import AuthContext from "./auth-context";
 
 const theme = createTheme({
   palette: {
@@ -46,39 +47,41 @@ function App() {
           <QueryClientProvider client={QueryClient}>
             <UsersContextLoader>
               <BrowserRouter>
-                <div className="container">
-                  <Navigation />
-                  <Routes>
-                    <Route
-                      path="/users/*"
-                      element={
-                        <div className="row">
-                          <div className="col-12">
-                            <Users />
+                <AuthContext>
+                  <div className="container">
+                    <Navigation />
+                    <Routes>
+                      <Route
+                        path="/users/*"
+                        element={
+                          <div className="row">
+                            <div className="col-12">
+                              <Users />
+                            </div>
+                            <div className="col-6">{/* <UserListRedux /> */}</div>
                           </div>
-                          <div className="col-6">{/* <UserListRedux /> */}</div>
-                        </div>
-                      }
-                    />
-                    <Route path="/login" element={<LoginScreen />} />
-                    <Route path="/register" element={<RegisterScreen />} />
-                    <Route
-                      path="/profile"
-                      element={
-                        // <ProtectedRoute>
-                        <ProfileScreen />
-                        /* </ProtectedRoute> */
-                      }
-                    />
-                    <Route path="/" element={<Navigate to="/driver/explore" />} />
-                    <Route
-                      path="/driver/*"
-                      element={
-                        <Driver />
-                      }
-                    />
-                  </Routes>
-                </div>
+                        }
+                      />
+                      <Route path="/login" element={<LoginScreen />} />
+                      <Route path="/register" element={<RegisterScreen />} />
+                      <Route
+                        path="/profile"
+                        element={
+                          // <ProtectedRoute>
+                          <ProfileScreen />
+                          /* </ProtectedRoute> */
+                        }
+                      />
+                      <Route path="/" element={<Navigate to="/driver/explore" />} />
+                      <Route
+                        path="/driver/*"
+                        element={
+                          <Driver />
+                        }
+                      />
+                    </Routes>
+                  </div>
+                </AuthContext>
               </BrowserRouter>
             </UsersContextLoader>
           </QueryClientProvider>
