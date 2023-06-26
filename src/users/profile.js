@@ -23,6 +23,8 @@ function ProfileScreen() {
     }
   };
 
+  // const dob = new Date(profile.dob).toISOString().split('T')[0];
+
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -69,6 +71,50 @@ function ProfileScreen() {
             onChange={(e) =>
               setProfile({ ...profile, password: e.target.value })
             }
+          />
+          <label className="text-danger" style={{fontFamily: "Helvetica"}}>First Name</label>
+          <i class="bi bi-pencil text-danger ms-2"></i>
+          <input
+            className="form-control mb-3 border-danger"
+            value={profile.firstName}
+            onChange={(e) =>
+              setProfile({ ...profile, firstName: e.target.value })
+            }
+          />
+          <label className="text-danger" style={{fontFamily: "Helvetica"}}>Last Name</label>
+          <i class="bi bi-pencil text-danger ms-2"></i>
+          <input
+            className="form-control mb-3 border-danger"
+            value={profile.lastName}
+            onChange={(e) =>
+              setProfile({ ...profile, lastName: e.target.value })
+            }
+          />
+          <label className="text-danger" style={{fontFamily: "Helvetica"}}>Email</label>
+          <i class="bi bi-pencil text-danger ms-2"></i>
+          <input
+            className="form-control mb-3 border-danger"
+            value={profile.email}
+            onChange={(e) =>
+              setProfile({ ...profile, email: e.target.value })
+            }
+          />
+          {/* <label className="text-danger" style={{fontFamily: "Helvetica"}}>Date of Birth</label>
+          <i class="bi bi-pencil text-danger ms-2"></i>
+          console.log(dob);
+          <input
+            type="date"
+            className="form-control mb-3 border-danger"
+            value={dob}
+            onChange={(e) =>
+              setProfile({ ...profile, dob: e.target.value })
+            } */}
+          {/* /> */}
+          <label className="text-danger" style={{fontFamily: "Helvetica"}}>Marrital Status</label>
+          <input
+            className="form-control mb-3 border-danger opacity-50 bg-danger text-white"
+            value={`${profile.married ? "Married" : "Not Married"}`}
+            readOnly
           />
         </>
       )}

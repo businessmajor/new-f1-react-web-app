@@ -52,7 +52,7 @@ function ExploreScreen() {
       </ul>
       <div className="position-relative mb-2">
         <img src="/images/monaco.jpeg" className="w-100" alt='Pretty background!' />
-        <h1 className="position-absolute wd-nudge-up text-white">
+        <h1 className="position-absolute wd-nudge-up text-white fw-bold">
           F1 2023 Season
         </h1>
       </div>

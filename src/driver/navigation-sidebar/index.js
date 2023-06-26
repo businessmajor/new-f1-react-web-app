@@ -34,7 +34,7 @@ const NavigationSidebar = () => {
           className={`list-group-item border-danger ${active === to ? "active bg-danger fw-bold" : ""}`}
         >
           <Icon className="me-2" />
-          <span className="sidebar-text" style={{ fontFamily: "Helvetica" }}>{label}</span>
+          <span className="sidebar-text d-none d-md-inline" style={{ fontFamily: "Helvetica" }}>{label}</span>
         </Link>
       ))}
     </div>
