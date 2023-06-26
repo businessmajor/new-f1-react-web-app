@@ -8,7 +8,7 @@ function ExploreScreen() {
 
   return (
     <div style={{ marginBottom: '50px' }}>
-      <h1 className="fw-bold" style={{ fontFamily: "Helvetica" }}>
+      <h1 className="d-flex justify-content-center fw-bold" style={{ fontFamily: "Helvetica" }}>
         <span className="text-danger">Explore</span>
         <span style={{ fontStyle: "italic" }}> Formula 1</span>
       </h1>

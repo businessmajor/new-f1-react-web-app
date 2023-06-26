@@ -7,113 +7,170 @@ const Register = () => {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleRegister = async () => {
     try {
-      const driv = document.getElementById('driv');
-      const admin = document.getElementById('admin');
-
-
-      if (driv.checked) {
-        user.role = "driver"
-      } else if (admin.checked) {
-        user.role = "admin" 
-      }
-
-      const AMG = document.getElementById('AMG');
-      const Red = document.getElementById('Red');
-      const Aston = document.getElementById('Aston');
-      const McLaren = document.getElementById('McLaren');
-      const Ferrari = document.getElementById('Ferrari');
-      const Alpine = document.getElementById('Alpine');
-      const AlphaTauri = document.getElementById('AlphaTauri');
-      const Alfa = document.getElementById('Alfa');
-      const Williams = document.getElementById('Williams');
-      const Haas = document.getElementById('Haas');
-
-      if (AMG.checked) {
-        user.team = "Mercedes AMG Motorsport"
-      } else if (Red.checked) {
-        user.team = "Red Bull Racing" 
-      } else if (Aston.checked) {
-        user.team = "Aston Martin F1 Team" 
-      } else if (McLaren.checked) {
-        user.team = "McLaren" 
-      } else if (Ferrari.checked) {
-        user.team = "Ferrari" 
-      } else if (Alpine.checked) {
-        user.team = "Alpine F1 Team" 
-      } else if (AlphaTauri.checked) {
-        user.team = "AlphaTauri" 
-      } else if (Alfa.checked) {
-        user.team = "Alfa Romeo Racing" 
-      } else if (Williams.checked) {
-        user.team = "Williams" 
-      } else if (Haas.checked) {
-        user.team = "Haas F1 Team" 
-      }
-
       await dispatch(registerThunk(user));
       navigate("/driver/profile");
     } catch (error) {
       console.error(error);
     }
   };
+
+  const handlePrivilegeChange = (privilege) => {
+    setUser({ ...user, role: privilege });
+  };
+
+  const handleTeamChange = (team) => {
+    setUser({ ...user, team });
+  };
+
   return (
-    <div>
-      <h1 className="text-danger fw-bold mb-4" style={{ fontFamily: "Helvetica" }}>Register</h1>
-      <input
-        placeholder="Username"
-        className="form-control mb-3 border-danger"
-        value={user.username}
-        onChange={(e) => setUser({ ...user, username: e.target.value })}
-      />
-      <input
-        placeholder="Password"
-        type="password"
-        className="form-control mb-3 border-danger"
-        value={user.password}
-        onChange={(e) => setUser({ ...user, password: e.target.value })}
-      />
-      <h3 className="text-danger mt-4" style={{ fontFamily: "Helvetica" }}>Privileges</h3>
-      <div class="list-group list-group-horizontal">
-        <div class="list-group-item">
-          <input className="visually-hidden" type="radio" name="role" value="Spectator" id="spec"/>
-          <label for="spec">Spectator</label>
-        </div>
-        <div class="list-group-item">
-          <input className="visually-hidden" type="radio" name="role" value="Driver" id="driv"/>
-          <label for="driv">Driver</label>
-        </div>
-        <div class="list-group-item">
-          <input className="visually-hidden" type="radio" name="role" value="Admin" id="admin"/>
-          <label for="admin">Admin</label>
-        </div>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-10">
+          <h1 className="d-flex justify-content-center text-danger fw-bold mb-4" style={{ fontFamily: "Helvetica" }}>
+            Register
+          </h1>
+          <input
+            placeholder="Username"
+            className="form-control mb-3 border-danger"
+            value={user.username}
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
+          />
+          <input
+            placeholder="Password"
+            type="password"
+            className="form-control mb-3 border-danger"
+            value={user.password}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+          />
+          <h3 className="d-flex justify-content-center text-danger mt-4" style={{ fontFamily: "Helvetica" }}>
+        Privileges
+      </h3>
+      <div className="list-group list-group-horizontal d-flex justify-content-center">
+        <button
+          className={`list-group-item border-dark ${
+            user.role === "Spectator" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handlePrivilegeChange("Spectator")}
+        >
+          Spectator
+        </button>
+        <button
+          className={`list-group-item border-dark ${
+            user.role === "Driver" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handlePrivilegeChange("Driver")}
+        >
+          Driver
+        </button>
+        <button
+          className={`list-group-item border-dark ${
+            user.role === "Admin" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handlePrivilegeChange("Admin")}
+        >
+          Admin
+        </button>
       </div>
 
-      <h3 className="text-danger mt-4" style={{ fontFamily: "Helvetica" }}>Selected A Team</h3>
-      <div class="list-group col-4 text-center mb-4">
-        <a href="#" class="list-group-item list-group-item-action border-danger" aria-current="true">
+
+      <h3 className="d-flex justify-content-center text-danger mt-4" style={{ fontFamily: "Helvetica" }}>
+        Select a Team
+      </h3>
+      <div className="d-flex justify-content-center list-group text-center mb-4">
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "Mercedes AMG Motorsport" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("Mercedes AMG Motorsport")}
+        >
           Mercedes AMG Motorsport
-        </a>
-        <a href="#" class="list-group-item list-group-item-action active border-danger bg-danger fw-bold">Red Bull Racing</a>
-        <a href="#" class="list-group-item list-group-item-action border-danger">Aston Martin F1 Team</a>
-        <a href="#" class="list-group-item list-group-item-action border-danger">McLaren</a>
-        <a href="#" class="list-group-item list-group-item-action border-danger">Ferrari</a>
-        <a href="#" class="list-group-item list-group-item-action border-danger">Alpine F1 Team</a>
-        <a href="#" class="list-group-item list-group-item-action border-danger">AlphaTauri</a>
-        <a href="#" class="list-group-item list-group-item-action border-danger">Alfa Romeo Racing</a>
-        <a href="#" class="list-group-item list-group-item-action border-danger">Williams</a>
-        <a href="#" class="list-group-item list-group-item-action border-danger">Haas F1 Team</a>
+        </button>
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "Red Bull Racing" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("Red Bull Racing")}
+        >
+          Red Bull Racing
+        </button>
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "Aston Martin F1 Team" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("Aston Martin F1 Team")}
+        >
+          Aston Martin F1 Team
+        </button>
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "McLaren" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("McLaren")}
+        >
+          McLaren
+        </button>
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "Ferrari" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("Ferrari")}
+        >
+          Ferrari
+        </button>
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "Alpine F1 Team" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("Alpine F1 Team")}
+        >
+          Alpine F1 Team
+        </button>
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "AlphaTauri" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("AlphaTauri")}
+        >
+          AlphaTauri
+        </button>
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "Alfa Romeo Racing" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("Alfa Romeo Racing")}
+        >
+          Alfa Romeo Racing
+        </button>
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "Williams" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("Williams")}
+        >
+          Williams
+        </button>
+        <button
+          className={`list-group-item list-group-item-action border-dark ${
+            user.team === "Haas F1 Team" ? "active bg-danger fw-bold" : ""
+          }`}
+          onClick={() => handleTeamChange("Haas F1 Team")}
+        >
+          Haas F1 Team
+        </button>
       </div>
 
-
-
-      <button onClick={handleRegister} className="btn btn-primary d-block mb-4">
-        Register
-      </button>
+          <div className="d-flex justify-content-center">
+            <button onClick={handleRegister} className="btn btn-success">
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
+
 export default Register;
-export const qwe = 123;
-export const asd = 456;
