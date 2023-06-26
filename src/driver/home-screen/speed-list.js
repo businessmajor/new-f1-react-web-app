@@ -33,9 +33,9 @@ const SpeedList = () => {
       }
       {
         
-        /*speeds.map(speed =>
+        speeds.map(speed =>
           <SpeedItem
-            key={speed._id} speed={speed} />)*/
+            key={speed._id} speed={speed.speed} />)
       }
       <pre>
         <code>{JSON.stringify(speeds, null, 2)}</code>

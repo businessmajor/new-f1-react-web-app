@@ -1,6 +1,6 @@
 //import TuitStats from "./tuit-stats";
 //import {deleteTuitThunk} from "../../services/tuits-thunks";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function SpeedItem({ speed }) {
@@ -13,14 +13,18 @@ function SpeedItem({ speed }) {
         <li className="list-group-item">
             <div className="row">
                 <div className="col-2">
-                    <img width={50} className="float-end rounded-circle" src={`${speed.image}`} />
+                    {//<img width={50} className="float-end rounded-circle" src={`${speed.image}`} />
+}
                 </div>
                 <div className="col-10">
                     <div><i className="bi bi-x float-end"
                         onClick={() => deleteTuitHandler(speed._id)}></i></div>
                     <div>
-                        <b>{speed.userName}</b> {speed.handle} . {speed.time}</div>
-                    <div>{speed.body
+                        {//<b>{speed.userName}</b> {speed.handle} . {speed.created}
+                        }
+                    </div>
+
+                    <div>{speed.speed
                     }</div>
                     {//<div><TuitStats speed={speed} /></div>
                     }
