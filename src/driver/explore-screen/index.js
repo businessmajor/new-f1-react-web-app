@@ -18,14 +18,16 @@ function ExploreScreen() {
           <a
             className={`nav-link ${activeTab === 'Standings' ? 'active bg-danger text-white fw-bold' : ''}`}
             onClick={() => setActiveTab('Standings')}
+            
           >
             Standings
           </a>
         </li>
-        <li className="nav-item me-2">
+        <li className="nav-item me-2 inactive">
           <a
             className={`nav-link ${activeTab === 'Races' ? 'active bg-danger text-white fw-bold' : ''}`}
             onClick={() => setActiveTab('Races')}
+            style={{ pointerEvents: "none", opacity: "0.5" }}
           >
             Races
           </a>
@@ -34,6 +36,7 @@ function ExploreScreen() {
           <a
             className={`nav-link ${activeTab === 'Drivers' ? 'active bg-danger text-white fw-bold' : ''}`}
             onClick={() => setActiveTab('Drivers')}
+            style={{ pointerEvents: "none", opacity: "0.5" }}
           >
             Drivers
           </a>

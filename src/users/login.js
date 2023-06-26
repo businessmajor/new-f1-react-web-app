@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "./users-thunks";
 import { useNavigate } from "react-router";
-import { Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container, colors } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
+import { Button, TextField, Link, Grid, Box, Typography, Container } from '@mui/material';
 
 
 function Copyright(props) {
@@ -47,7 +46,6 @@ const Login = () => {
   return (
     // <ThemeProvider >
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const constructorIcons = {
+const teams = {
     'Red Bull': '/images/team-icons/rb.png',
     'Mercedes': '/images/team-icons/mercedes.png',
     'Aston Martin': '/images/team-icons/am.png',
@@ -15,8 +15,7 @@ const constructorIcons = {
 };
 
 const ConstructorIcon = ({ constructorName }) => {
-    const icon = constructorIcons[constructorName] || constructorIcons.default;
-
+    const icon = teams[constructorName] || teams.default;
     return <img src={icon} height="30px" alt={`${constructorName} Icon`} />;
 };
 

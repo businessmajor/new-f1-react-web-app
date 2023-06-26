@@ -23,10 +23,6 @@ function TeamDetail() {
     if (teamDriversQuery.isSuccess && teamStatsQuery.isSuccess) {
       const drivers = teamDriversQuery.data.data?.MRData?.DriverTable?.Drivers;
 
-      // const championships = calculateTeamStats(
-      //   teamStatsQuery.data.data.MRData.StandingsTable.StandingsLists
-      // );
-
       return (
         <Card className="lg:w-2/3 mx-auto mt-24">
           <div className=" w-1/3 mx-auto my-auto">

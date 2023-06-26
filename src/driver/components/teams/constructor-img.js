@@ -15,9 +15,9 @@ const teams = {
 };
 
 const TeamImage = ({ constructorName }) => {
-    const icon = teams[constructorName] || teams.default;
-
-    return <img src={icon} height="30px" alt={`${constructorName} Icon`} />;
+    const img = teams[constructorName] || teams.default;
+    return <img src={img} alt={`${constructorName} Icon`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />;
 };
+
 
 export default TeamImage;
