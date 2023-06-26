@@ -44,7 +44,7 @@ function WhatsHappening() {
             topic: "f1",
             title: "f1",
             speed: speed,
-            username: "alice"
+            username: userEvent.data.username
         }
         try {
             await speedsService.createSpeed(newSpeed, currentUser.data._id)//{ speed: speed });
