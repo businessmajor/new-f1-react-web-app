@@ -63,7 +63,6 @@ function WhatsHappening() {
             <div className="col-12">
                 <hr className="text-danger" style={{ borderStyle: "dashed" }}/>
             </div>
-            <pre>{JSON.stringify(allSpeeds, null, 2)}</pre>
         </div>
     );
 }

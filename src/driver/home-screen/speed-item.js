@@ -18,16 +18,12 @@ function SpeedItem({ speed }) {
                 </div>
                 <div className="col-10">
                     <div><i className="bi bi-x float-end"
-                        onClick={() => deleteTuitHandler(speed._id)}></i></div>
-                    <div>
-                        {//<b>{speed.userName}</b> {speed.handle} . {speed.created}
-                        }
-                    </div>
+                        onClick={() => deleteTuitHandler(speed._id)}></i>
+                        </div>
+                    
 
-                    <div>
-                    </div>
-                    {//<div><TuitStats speed={speed} /></div>
-                    }
+                    <div>{speed.speed} </div>
+                   
                 </div>
             </div>
         </li>
