@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 //import { Avatar } from 'mui';
 
 function WhatsHappening() {
-    const { currentUser } = useSelector((state) => state.user);
+    const { currentUser } = useSelector((state) => state.users);
     const [speed, setSpeed] = useState("");
     const [allSpeeds, setAllSpeeds] = useState([]);
     const [speedInput, setSpeedInput] = useState('');
