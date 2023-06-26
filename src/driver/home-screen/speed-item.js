@@ -3,7 +3,7 @@
 import { useDispatch } from "react-redux";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-function SpeedItem({ speed }) {
+function SpeedItem( speed ) {
     const dispatch = useDispatch();
     const deleteTuitHandler = (id) => {
         //dispatch(deleteTuitThunk(id));
