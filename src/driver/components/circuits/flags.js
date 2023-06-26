@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useGetCircuit } from './api/get_circuit';
 import { flagAxios } from '../../../services/axios';
-import countryCodes from '../countries.json';
+import { useGetCircuit } from './api/get_circuit';
+import getCountryCode from '../country_to_code';
+
+
+
+
+
 
 const CircuitFlag = ({ circuitId }) => {
   const [flagUrl, setFlagUrl] = useState('');
@@ -20,7 +25,8 @@ const CircuitFlag = ({ circuitId }) => {
         console.log(country);
 
         if (country) {
-          const country_code = countryCodes[country] || null;
+          const country_code = getCountryCode(country);
+          console.log(country_code);
           // Fetch the flag image based on the country code
           const response = await flagAxios.get(`https://flagcdn.com/w20/${country_code}.png`);
 
@@ -50,10 +56,9 @@ const CircuitFlag = ({ circuitId }) => {
 
   return (
     <>
-      {flagUrl && <img src={flagUrl} height="30px" alt="Circuit Flag" />}
+      {<img src={flagUrl} height="50px" alt="Circuit Flag" />}
     </>
   );
 };
-
 
 export default CircuitFlag;
