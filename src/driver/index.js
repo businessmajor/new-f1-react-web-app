@@ -17,7 +17,6 @@ function Driver() {
       <div className="col-2">
         <NavigationSidebar />
       </div>
-
       <div className="col-7">
         <Routes>
           <Route path="home" element={<HomeScreen />} />

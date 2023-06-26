@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import StandingsTable from '../table';
 import { TableCell, TableRow } from '@mui/material';
-// import current_season from '../../../context';
 import { useDriverStandings } from './api/get_driver_standings';
 import { Link } from 'react-router-dom';
 import ConstructorIcon from '../teams/constructor-icon';

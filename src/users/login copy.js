@@ -1,15 +1,12 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { loginThunk } from "./users-thunks";
-import { useNavigate } from "react-router";
-import { Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container } from '@mui/material';
+import * as React from 'react';
+import { Avatar, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box } from '@mui/material';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-const defaultTheme = createTheme();
 
 function Copyright(props) {
   return (
-    //mui template
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://main--fancy-scone-d277a0.netlify.app/">
@@ -21,28 +18,16 @@ function Copyright(props) {
   );
 }
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  console.log({
-    email: data.get('email'),
-    password: data.get('password'),
-  });
-}
+const defaultTheme = createTheme();
 
-
-const Login = () => {
-  const [user, setUser] = useState({});
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleLogin = async () => {
-    try {
-      await dispatch(loginThunk(user));
-      navigate("/driver/profile");
-    } catch (error) {
-      console.error(error);
-    }
+export default function SignIn() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
   };
 
   return (
@@ -56,28 +41,26 @@ const Login = () => {
             flexDirection: 'column',
             alignItems: 'center',
           }}
-        > <Typography component="h1" variant="h5" className="text-danger fw-bold mb-4">
-            Log in
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
           </Typography>
-
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
-              value={user.username}
-              onChange={(e) => setUser({ ...user, username: e.target.value })}
               required
               fullWidth
-              id="username"
-              label="Username"
+              id="email"
+              label="Email Address"
               name="email"
               autoComplete="email"
               autoFocus
-
             />
             <TextField
               margin="normal"
-              value={user.password}
-              onChange={(e) => setUser({ ...user, password: e.target.value })}
               required
               fullWidth
               name="password"
@@ -85,12 +68,13 @@ const Login = () => {
               type="password"
               id="password"
               autoComplete="current-password"
-
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
             />
             <Button
               type="submit"
-              className="text-danger fw-bold mb-4"
-              onClick={handleLogin}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -98,6 +82,11 @@ const Login = () => {
               Sign In
             </Button>
             <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
                   {"Don't have an account? Sign Up"}
@@ -109,9 +98,5 @@ const Login = () => {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-
-
   );
-};
-
-export default Login;
+}

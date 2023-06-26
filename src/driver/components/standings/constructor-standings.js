@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import current_season from '../../../context';
+import React from 'react';
 import StandingsTable from '../table';
 import { TableCell, TableRow } from '@mui/material';
 import { useConstructorStandings } from './api/get_constructor_standings';
@@ -28,7 +27,7 @@ const ConstructorRow = ({ constructor }) => {
 };
 
 function ConstructorStandings() {
-  const year = 2023; //useContext(current_season);
+  const year = 2023;
   const teamRankingsQuery = useConstructorStandings(year);
 
   if (teamRankingsQuery.isSuccess) {
