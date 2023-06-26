@@ -24,7 +24,7 @@ function SpeedItem({ speed }) {
                         }
                     </div>
 
-                    <div>{speed.speed}
+                    <div>
                     </div>
                     {//<div><TuitStats speed={speed} /></div>
                     }
