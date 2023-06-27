@@ -10,7 +10,7 @@ const SpeedList = () => {
   //make sure thunks work
   //make sure service works
   //make sure item works 
-  const [speeds, setSpeeds] = useState([]);
+  const [speeds, setSpeeds, loading] = useState([]);
   // const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(findAllSpeedsThunk())
@@ -26,18 +26,21 @@ const SpeedList = () => {
 
   return (
     <ul className="list-group">
-      {/*loading &&
-        <li className="list-group-item">
-          Loading...
-        </li>*/
-      }
-      {
-        
-        speeds.map(speed =>
+      {loading ? (
+        <li className="list-group-item">Loading...</li>
+      ) : (
+        speeds.map((speed) => (
           <SpeedItem
-            key={speed._id} speed={speed.speed} username={speed.username} author={speed.author} created={speed.created}/>)
-      }
+            key={speed._id}
+            speed={speed.speed}
+            username={speed.username}
+            author={speed.author}
+            created={speed.created}
+          />
+        ))
+      )}
     </ul>
   );
-};
+}
+
 export default SpeedList;

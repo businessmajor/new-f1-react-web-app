@@ -1,6 +1,5 @@
-//import TuitStats from "./tuit-stats";
-//import {deleteTuitThunk} from "../../services/tuits-thunks";
 import { useDispatch, useSelector } from "react-redux";
+import { Typography } from '@mui/material';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function SpeedItem({ speed, username, author, created }) {
@@ -10,7 +9,7 @@ function SpeedItem({ speed, username, author, created }) {
         isAdmin = (currentUser.data.role === "admin");
     }
 
-    const dispatch = useDispatch();
+    useDispatch();
     const deleteTuitHandler = (id) => {
         //dispatch(deleteTuitThunk(id));
     }
@@ -37,12 +36,16 @@ function SpeedItem({ speed, username, author, created }) {
                         </div>
                     )}
                     <div>
-                        <a href={`profile/${author}`}>
-                            <b>@{username}</b>
-                        </a>{" "}
-                        {created}
+                        <Typography variant="body1">
+                            <a href={`profile/${author}`}>
+                                @<b>{username}</b>
+                            </a>{" "}
+                            {created}
+                        </Typography>
                     </div>
-                    <div>{speed}</div>
+                    <div>
+                        <Typography variant="body2">{speed}</Typography>
+                    </div>
                 </div>
             </div>
         </li>

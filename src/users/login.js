@@ -6,7 +6,7 @@ import { Button, TextField, Link, Grid, Box, Typography, Container } from '@mui/
 
 
 function Copyright(props) {
-  const [user, setUser] = useState({});
+  useState({});
   return (
     //mui template
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
