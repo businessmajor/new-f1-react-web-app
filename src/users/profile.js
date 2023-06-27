@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { profileThunk, logoutThunk, updateUserThunk } from "./users-thunks";
-import { useNavigate } from "react-router";
+import { profileThunk, logoutThunk, updateUserThunk, getIdProfileThunk } from "./users-thunks";
+import { useNavigate, matchPath, useParams } from "react-router";
 import * as speedsService from "../driver/speeds-service";
+
 function ProfileScreen() {
+  const {profileId} = useParams();
   const { currentUser } = useSelector((state) => state.users);
   const [profile, setProfile] = useState(currentUser);
   const [mySpeeds, setMySpeeds] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  let isCurrUser = true;
+  if (profileId && currentUser._id != profileId) {
+    isCurrUser = false;
+  }
 
   const handleLogout = () => {
     dispatch(logoutThunk());
@@ -28,8 +35,14 @@ function ProfileScreen() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const { payload } = await dispatch(profileThunk());
-        setProfile(payload);
+        if (isCurrUser){
+          const { payload } = await dispatch(profileThunk());
+          setProfile(payload);
+        } else {
+          const { payload } = await dispatch(getIdProfileThunk());
+          setProfile(payload);
+        }
+        
       } catch (error) {
         console.error(error);
         navigate("/login");

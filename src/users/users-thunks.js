@@ -24,6 +24,11 @@ export const profileThunk = createAsyncThunk("users/profile", async () => {
   return currentUser;
 });
 
+export const getIdProfileThunk = createAsyncThunk("users/profile-id", async () => {
+  const currentUser = await userService.getIdProfile();
+  return currentUser;
+});
+
 export const logoutThunk = createAsyncThunk("users/logout", async () => {
   await userService.logout();
 });

@@ -32,6 +32,11 @@ export const getProfile = async () => {
   return response;
 };
 
+export const getIdProfile = async (uid) => {
+  const response = await request.get(`${USER_API}/${uid}`);
+  return response;
+};
+
 export const getUsers = async () => {
   const response = await axios.get(USER_API);
   return response.data;
