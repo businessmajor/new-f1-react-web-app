@@ -73,7 +73,7 @@ function App() {
                         }
                       />
                       <Route
-                        path="/profile/:uid"
+                        path="driver/profile/:uid"
                         element={
                           // <ProtectedRoute>
                           <ProfileScreen />
