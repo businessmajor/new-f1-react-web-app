@@ -72,6 +72,14 @@ function App() {
                           /* </ProtectedRoute> */
                         }
                       />
+                      <Route
+                        path="/profile/:profileId"
+                        element={
+                          // <ProtectedRoute>
+                          <ProfileScreen />
+                          /* </ProtectedRoute> */
+                        }
+                      />
                       <Route path="/" element={<Navigate to="/driver/explore" />} />
                       <Route
                         path="/driver/*"
