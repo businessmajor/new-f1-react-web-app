@@ -5,7 +5,7 @@ import { HiOutlineGift } from 'react-icons/hi';
 import { BsEmojiSmile } from 'react-icons/bs';
 import { TiCalendar } from 'react-icons/ti';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
-import { createSpeedThunk} from  '../speeds-thunks';
+import { createSpeedThunk } from '../speeds-thunks';
 import { useSelector, useDispatch } from "react-redux";
 //import { Avatar } from 'mui';
 
@@ -57,7 +57,7 @@ function WhatsHappening() {
     return (
         <div className="row" style={{ fontFamily: "Helvetica" }}>
             <div className="col-auto">
-                <img src={require(`./businessmajor.jpeg`)} width={60} alt="Business Major" className="float-end rounded-circle" />
+                <img src={require(`./f1.jpg`)} width={60} alt="Business Major" className="float-end rounded-circle" />
             </div>
             <div className="col-10">
                 <textarea
@@ -82,7 +82,7 @@ function WhatsHappening() {
                 </div>
             </div>
             <div className="col-12">
-                <hr className="text-danger" style={{ borderStyle: "dashed" }}/>
+                <hr className="text-danger" style={{ borderStyle: "dashed" }} />
             </div>
         </div>
     );
