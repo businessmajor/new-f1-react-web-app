@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function SpeedItem({speed, username, author, created}) {
     const { currentUser } = useSelector((state) => state.users);
+    const isAdmin = currentUser.role;
     const dispatch = useDispatch();
     const deleteTuitHandler = (id) => {
         //dispatch(deleteTuitThunk(id));
@@ -18,7 +19,7 @@ function SpeedItem({speed, username, author, created}) {
                     }
                 </div>
                 <div className="col-10">
-                    {currentUser &&
+                    {isAdmin &&
                     <div><i className="bi bi-x float-end"
                         onClick={() => deleteTuitHandler(speed._id)}></i>
                     </div>
