@@ -35,7 +35,7 @@ const SpeedList = () => {
         
         speeds.map(speed =>
           <SpeedItem
-            key={speed._id} speed={speed.speed} username={speed.username} created={speed.created}/>)
+            key={speed._id} speed={speed.speed} username={speed.username} author={speed.author} created={speed.created}/>)
       }
     </ul>
   );

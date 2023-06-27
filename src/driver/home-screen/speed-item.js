@@ -21,7 +21,7 @@ function SpeedItem({speed, username, created}) {
                         onClick={() => deleteTuitHandler(speed._id)}></i>
                     </div>
                     <div>
-                        <b>{username}</b> {created}
+                    <a href={`../profile/${author}`}><b>{username}</b></a> {created}
                     </div>
 
 
