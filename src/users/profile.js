@@ -38,10 +38,11 @@ function ProfileScreen() {
         if (isCurrUser){
           const { payload } = await dispatch(profileThunk());
           if (payload) {
-            setProfile(payload);
+            //setProfile(payload);
           } else {
-            setProfile(currentUser.data);
+            
           }
+          setProfile(currentUser.data);
           
         } else {
           const {payload} = await dispatch(getIdProfileThunk(uid));
@@ -70,7 +71,7 @@ function ProfileScreen() {
     }
     fetchProfile();
     if (isCurrUser) {
-      fetchMySpeeds();
+      //fetchMySpeeds();
     }
     
   }, [dispatch]);
