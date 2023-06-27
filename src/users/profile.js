@@ -37,7 +37,12 @@ function ProfileScreen() {
       try {
         if (isCurrUser){
           const { payload } = await dispatch(profileThunk());
-          setProfile(currentUser.data);
+          if (payload) {
+            setProfile(payload);
+          } else {
+            setProfile(currentUser.data);
+          }
+          
         } else {
           const {payload} = await dispatch(getIdProfileThunk(uid));
           setProfile(payload.data);
