@@ -6,14 +6,14 @@ import * as speedsService from "../driver/speeds-service";
 
 function ProfileScreen() {
   const {uid} = useParams();
-  const { currentUser } = useSelector((state) => state.users.data);
+  const { currentUser } = useSelector((state) => state.users);
   const [profile, setProfile] = useState(currentUser);
   const [mySpeeds, setMySpeeds] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   let isCurrUser = true;
-  if (!currentUser ||( uid && currentUser._id != uid)) {
+  if (!currentUser ||( uid && currentUser.data._id != uid)) {
     isCurrUser = false;
   }
 
