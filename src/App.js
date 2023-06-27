@@ -73,7 +73,7 @@ function App() {
                         }
                       />
                       <Route
-                        path="/profile/:profileId"
+                        path="/profile/:uid"
                         element={
                           // <ProtectedRoute>
                           <ProfileScreen />
