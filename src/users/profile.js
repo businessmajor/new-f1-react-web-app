@@ -39,8 +39,8 @@ function ProfileScreen() {
           const { payload } = await dispatch(profileThunk());
           setProfile(currentUser.data);
         } else {
-          const payload = await dispatch(getIdProfileThunk(uid));
-          setProfile(payload);
+          const {payload} = await dispatch(getIdProfileThunk(uid));
+          setProfile(payload.data);
         }
         
       } catch (error) {
