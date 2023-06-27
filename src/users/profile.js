@@ -5,7 +5,7 @@ import { useNavigate, matchPath, useParams } from "react-router";
 import * as speedsService from "../driver/speeds-service";
 
 function ProfileScreen() {
-  const {profileId} = useParams();
+  const {uid} = useParams();
   const { currentUser } = useSelector((state) => state.users);
   const [profile, setProfile] = useState(currentUser);
   const [mySpeeds, setMySpeeds] = useState([]);
@@ -13,7 +13,7 @@ function ProfileScreen() {
   const navigate = useNavigate();
 
   let isCurrUser = true;
-  if (profileId && currentUser._id != profileId) {
+  if (!currentUser ||( uid && currentUser._id != uid)) {
     isCurrUser = false;
   }
 
@@ -56,8 +56,18 @@ function ProfileScreen() {
         console.error(error);
       }
     };
+    const fetchUser = async () => {
+      try{
+
+      } catch (error) {
+
+      }
+    }
     fetchProfile();
-    fetchMySpeeds();
+    if (isCurrUser) {
+      fetchMySpeeds();
+    }
+    
   }, [dispatch]);
 
   return (
