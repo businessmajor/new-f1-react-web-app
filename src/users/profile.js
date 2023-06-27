@@ -6,7 +6,7 @@ import * as speedsService from "../driver/speeds-service";
 
 function ProfileScreen() {
   const {uid} = useParams();
-  const { currentUser } = useSelector((state) => state.users);
+  const { currentUser } = useSelector((state) => state.users.data);
   const [profile, setProfile] = useState(currentUser);
   const [mySpeeds, setMySpeeds] = useState([]);
   const dispatch = useDispatch();
