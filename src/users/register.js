@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "./users-thunks";
 import { useNavigate } from "react-router";
-import ConstructorIcon from '../teams/constructor-icon';
+import ConstructorIcon from '../driver/components/teams/constructor-icon';
 
 const Register = () => {
   const [user, setUser] = useState({});
@@ -83,21 +83,21 @@ const Register = () => {
                 }`}
               onClick={() => handleTeamChange("Mercedes AMG Motorsport")}
             >
-              <ConstructorIcon constructorName="Mercedes AMG Motorsport" /> Mercedes AMG Motorsport
+              <ConstructorIcon constructorName="Mercedes" /> Mercedes AMG Motorsport
             </button>
             <button
               className={`list-group-item list-group-item-action border-dark ${user.team === "Red Bull Racing" ? "active bg-danger fw-bold" : ""
                 }`}
               onClick={() => handleTeamChange("Red Bull Racing")}
             >
-              <ConstructorIcon constructorName="Red Bull Racing" /> Red Bull Racing
+              <ConstructorIcon constructorName="Red Bull" /> Red Bull Racing
             </button>
             <button
               className={`list-group-item list-group-item-action border-dark ${user.team === "Aston Martin F1 Team" ? "active bg-danger fw-bold" : ""
                 }`}
               onClick={() => handleTeamChange("Aston Martin F1 Team")}
             >
-              <ConstructorIcon constructorName="Aston Martin F1 Team" /> Aston Martin F1 Team
+              <ConstructorIcon constructorName="Aston Martin" /> Aston Martin F1 Team
             </button>
             <button
               className={`list-group-item list-group-item-action border-dark ${user.team === "McLaren" ? "active bg-danger fw-bold" : ""
@@ -132,7 +132,7 @@ const Register = () => {
                 }`}
               onClick={() => handleTeamChange("Alfa Romeo Racing")}
             >
-              <ConstructorIcon constructorName="Alfa Romeo Racing" /> Alfa Romeo Racing
+              <ConstructorIcon constructorName="Alfa Romeo" /> Alfa Romeo Racing
             </button>
             <button
               className={`list-group-item list-group-item-action border-dark ${user.team === "Williams" ? "active bg-danger fw-bold" : ""
