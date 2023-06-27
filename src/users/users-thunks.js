@@ -24,8 +24,8 @@ export const profileThunk = createAsyncThunk("users/profile", async () => {
   return currentUser;
 });
 
-export const getIdProfileThunk = createAsyncThunk("users/profile-id", async () => {
-  const currentUser = await userService.getIdProfile();
+export const getIdProfileThunk = createAsyncThunk("users/profile-id", async (uid) => {
+  const currentUser = await userService.getIdProfile(uid);
   return currentUser;
 });
 
