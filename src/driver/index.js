@@ -29,6 +29,7 @@ function Driver() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="profile" element={<ProfileScreen />} />
+          <Route path="profile/:profileId" element={<ProfileScreen />} />
         </Routes>
       </div>
 
