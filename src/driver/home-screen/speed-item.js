@@ -5,7 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function SpeedItem({speed, username, author, created}) {
     const { currentUser } = useSelector((state) => state.users);
-    const isAdmin = currentUser.role;
+    const isAdmin = (currentUser.data.role == admin);
     const dispatch = useDispatch();
     const deleteTuitHandler = (id) => {
         //dispatch(deleteTuitThunk(id));
