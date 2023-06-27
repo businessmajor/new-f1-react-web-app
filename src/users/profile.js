@@ -37,7 +37,7 @@ function ProfileScreen() {
       try {
         if (isCurrUser){
           const { payload } = await dispatch(profileThunk());
-          setProfile(payload);
+          setProfile(currentUser.data);
         } else {
           const { payload } = await dispatch(getIdProfileThunk());
           setProfile(payload);
@@ -144,7 +144,6 @@ function ProfileScreen() {
       <button onClick={handleLogout} className="btn btn-danger fw-bold mt-5 mb-3" style={{ fontFamily: "Helvetica" }}>
         Logout
       </button>
-      <pre>{JSON.stringify(mySpeeds, null, 2)}</pre>
     </div>
   );
 }
