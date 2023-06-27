@@ -1,6 +1,6 @@
 //import TuitStats from "./tuit-stats";
 //import {deleteTuitThunk} from "../../services/tuits-thunks";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function SpeedItem({speed, username, author, created}) {
@@ -21,7 +21,8 @@ function SpeedItem({speed, username, author, created}) {
                     {currentUser &&
                     <div><i className="bi bi-x float-end"
                         onClick={() => deleteTuitHandler(speed._id)}></i>
-                    </div>}
+                    </div>
+                    }
                     <div>
                     <a href={`profile/${author}`}><b>{username}</b></a> {created}
                     </div>
