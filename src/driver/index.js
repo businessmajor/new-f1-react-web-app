@@ -9,12 +9,15 @@ import Register from "../users/register"
 import NextRace from "../driver/components/races/next_race";
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from "./reducers/auth-reducer";
+import SpeedList from "./home-screen/speed-list";
+import { useSelector } from "react-redux";
 // import { Provider } from "react-redux";
 // import { store } from "./store";
 const store = configureStore(
   { reducer: { user: authReducer } });
 
 function Driver() {
+  const { currentUser } = useSelector((state) => state.users);
   return (
     // <Provider store={store}>
     <div className="row">
@@ -35,6 +38,9 @@ function Driver() {
 
       <div className="d-none d-lg-block col-lg-3">
         <NextRace />
+        {currentUser && (<div style={{ marginTop: '20px' }}>
+        <SpeedList/>  
+        </div>)}
       </div>
     </div>
     // </Provider>
