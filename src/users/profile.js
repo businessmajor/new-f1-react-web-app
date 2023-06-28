@@ -19,7 +19,7 @@ function ProfileScreen() {
 
   const handleLogout = () => {
     dispatch(logoutThunk());
-    navigate("/login");
+    navigate("../login");
   };
 
   const handleUpdate = async () => {
@@ -37,12 +37,6 @@ function ProfileScreen() {
       try {
         if (isCurrUser){
           const { payload } = await dispatch(profileThunk());
-          if (!payload._id) {
-            
-          } else {
-            
-          } 
-          setProfile(currentUser.data);
           setProfile(payload.data);
           
         } else {
@@ -52,7 +46,7 @@ function ProfileScreen() {
         
       } catch (error) {
         console.error(error);
-        navigate("/login");
+        navigate("/driver/alogin");
       }
     };
     const fetchMySpeeds = async () => {
