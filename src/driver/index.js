@@ -26,6 +26,7 @@ function Driver() {
       </div>
       <div className="col-10 col-sm-10 col-lg-7">
         <Routes>
+          <Route path="/" element={<ExploreScreen />} />
           <Route path="home" element={<HomeScreen />} />
           <Route path="explore" element={<ExploreScreen />} />
           <Route path="messages" element={<ProtectedRoute><h1>Messages</h1> </ProtectedRoute>} />
@@ -35,6 +36,8 @@ function Driver() {
           <Route path="profile/:uid" element={<ProfileScreen />} />
         </Routes>
       </div>
+      {/* redirect to /explore */}
+
 
       <div className="d-none d-lg-block col-lg-3">
         <NextRace />
