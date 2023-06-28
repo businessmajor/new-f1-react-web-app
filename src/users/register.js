@@ -11,8 +11,11 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
+      setUser(user)
       await dispatch(registerThunk(user));
-      navigate("/driver/profile");
+      setTimeout(() => {
+        navigate("/driver/profile");
+      }, 5000);
     } catch (error) {
       console.error(error);
     }
@@ -51,23 +54,23 @@ const Register = () => {
           </h3>
           <div className="list-group list-group-horizontal d-flex justify-content-center">
             <button
-              className={`list-group-item border-dark ${user.role === "Spectator" ? "active bg-danger fw-bold" : ""
+              className={`list-group-item border-dark ${user.role === "spectator" ? "active bg-danger fw-bold" : ""
                 }`}
-              onClick={() => handlePrivilegeChange("Spectator")}
+              onClick={() => handlePrivilegeChange("spectator")}
             >
               Spectator
             </button>
             <button
-              className={`list-group-item border-dark ${user.role === "Driver" ? "active bg-danger fw-bold" : ""
+              className={`list-group-item border-dark ${user.role === "driver" ? "active bg-danger fw-bold" : ""
                 }`}
-              onClick={() => handlePrivilegeChange("Driver")}
+              onClick={() => handlePrivilegeChange("driver")}
             >
               Driver
             </button>
             <button
-              className={`list-group-item border-dark ${user.role === "Admin" ? "active bg-danger fw-bold" : ""
+              className={`list-group-item border-dark ${user.role === "admin" ? "active bg-danger fw-bold" : ""
                 }`}
-              onClick={() => handlePrivilegeChange("Admin")}
+              onClick={() => handlePrivilegeChange("admin")}
             >
               Admin
             </button>
@@ -79,23 +82,23 @@ const Register = () => {
           </h3>
           <div className="d-flex justify-content-center list-group text-center mb-4">
             <button
-              className={`list-group-item list-group-item-action border-dark ${user.team === "Mercedes AMG Motorsport" ? "active bg-danger fw-bold" : ""
+              className={`list-group-item list-group-item-action border-dark ${user.team === "Mercedes" ? "active bg-danger fw-bold" : ""
                 }`}
-              onClick={() => handleTeamChange("Mercedes AMG Motorsport")}
+              onClick={() => handleTeamChange("Mercedes")}
             >
               <ConstructorIcon constructorName="Mercedes" /> Mercedes AMG Motorsport
             </button>
             <button
-              className={`list-group-item list-group-item-action border-dark ${user.team === "Red Bull Racing" ? "active bg-danger fw-bold" : ""
+              className={`list-group-item list-group-item-action border-dark ${user.team === "Red Bull" ? "active bg-danger fw-bold" : ""
                 }`}
-              onClick={() => handleTeamChange("Red Bull Racing")}
+              onClick={() => handleTeamChange("Red Bull")}
             >
               <ConstructorIcon constructorName="Red Bull" /> Red Bull Racing
             </button>
             <button
-              className={`list-group-item list-group-item-action border-dark ${user.team === "Aston Martin F1 Team" ? "active bg-danger fw-bold" : ""
+              className={`list-group-item list-group-item-action border-dark ${user.team === "Aston Martin" ? "active bg-danger fw-bold" : ""
                 }`}
-              onClick={() => handleTeamChange("Aston Martin F1 Team")}
+              onClick={() => handleTeamChange("Aston Martin")}
             >
               <ConstructorIcon constructorName="Aston Martin" /> Aston Martin F1 Team
             </button>
@@ -114,9 +117,9 @@ const Register = () => {
               <ConstructorIcon constructorName="Ferrari" /> Ferrari
             </button>
             <button
-              className={`list-group-item list-group-item-action border-dark ${user.team === "Alpine F1 Team" ? "active bg-danger fw-bold" : ""
+              className={`list-group-item list-group-item-action border-dark ${user.team === "Alpine" ? "active bg-danger fw-bold" : ""
                 }`}
-              onClick={() => handleTeamChange("Alpine F1 Team")}
+              onClick={() => handleTeamChange("Alpine")}
             >
               <ConstructorIcon constructorName="Alpine F1 Team" /> Alpine F1 Team
             </button>
@@ -128,9 +131,9 @@ const Register = () => {
               <ConstructorIcon constructorName="AlphaTauri" /> AlphaTauri
             </button>
             <button
-              className={`list-group-item list-group-item-action border-dark ${user.team === "Alfa Romeo Racing" ? "active bg-danger fw-bold" : ""
+              className={`list-group-item list-group-item-action border-dark ${user.team === "Alfa Romeo" ? "active bg-danger fw-bold" : ""
                 }`}
-              onClick={() => handleTeamChange("Alfa Romeo Racing")}
+              onClick={() => handleTeamChange("Alfa Romeo")}
             >
               <ConstructorIcon constructorName="Alfa Romeo" /> Alfa Romeo Racing
             </button>
@@ -142,9 +145,9 @@ const Register = () => {
               <ConstructorIcon constructorName="Williams" /> Williams
             </button>
             <button
-              className={`list-group-item list-group-item-action border-dark ${user.team === "Haas F1 Team" ? "active bg-danger fw-bold" : ""
+              className={`list-group-item list-group-item-action border-dark ${user.team === "Haas" ? "active bg-danger fw-bold" : ""
                 }`}
-              onClick={() => handleTeamChange("Haas F1 Team")}
+              onClick={() => handleTeamChange("Haas")}
             >
               <ConstructorIcon constructorName="Haas F1 Team" /> Haas F1 Team
             </button>

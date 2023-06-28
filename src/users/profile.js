@@ -46,7 +46,7 @@ function ProfileScreen() {
         
       } catch (error) {
         console.error(error);
-        navigate("/driver/alogin");
+        navigate("/driver/login");
       }
     };
     const fetchMySpeeds = async () => {
