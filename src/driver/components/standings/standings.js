@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import {Box, Tab, Tabs} from '@mui/material';
+import { Box, Tab, Tabs} from '@mui/material';
 import DriverStandings from './driver-standings';
 import ConstructorStandings from './constructor-standings';
+import Search from './search';
 
 function Standings() {
   const [value, setValue] = useState(0);
@@ -12,6 +13,7 @@ function Standings() {
 
   return (
     <Box sx={{ width: '100%' }}>
+      <Search/>
       <Tabs value={value} onChange={handleChange} centered>
         <Tab label="Drivers" />
         <Tab label="Constructors" />
