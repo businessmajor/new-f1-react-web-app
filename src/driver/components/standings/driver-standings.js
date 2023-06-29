@@ -15,7 +15,7 @@ const DriverRow = ({ driver }) => {
       <TableCell>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <ConstructorIcon constructorName={Constructors[0].name} />
-          <Link to={`/drivers/${Driver.driverId}`} className="text-inherit" style={{ marginLeft: '8px' }}>
+          <Link to={`../drivers/${Driver.driverId}`} className="text-inherit" style={{ marginLeft: '8px' }}>
             {driverFullName}
           </Link>
         </div>

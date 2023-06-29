@@ -11,6 +11,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import authReducer from "./reducers/auth-reducer";
 import SpeedList from "./home-screen/speed-list";
 import { useSelector } from "react-redux";
+import Details from "./components/Details";
 // import { Provider } from "react-redux";
 // import { store } from "./store";
 const store = configureStore(
@@ -34,6 +35,7 @@ function Driver() {
           <Route path="register" element={<Register />} />
           <Route path="profile" element={<ProfileScreen />} />
           <Route path="profile/:uid" element={<ProfileScreen />} />
+          <Route path="drivers/:name" element={<Details/>} />
         </Routes>
       </div>
       {/* redirect to /explore */}
