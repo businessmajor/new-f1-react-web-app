@@ -12,6 +12,9 @@ function ProfileScreen() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //const emptyProf = {role: "", username: "", password: "", firstName: "", lastName: "", email: ""}
+  //setProfile(emptyProf);
+
   let isCurrUser = true;
   if (!currentUser || (uid && currentUser.data._id != uid)) {
     isCurrUser = false;
@@ -36,6 +39,7 @@ function ProfileScreen() {
     const fetchProfile = async () => {
       try {
         if (isCurrUser) {
+          
           const { payload } = await dispatch(profileThunk());
           setProfile(payload.data);
 
@@ -78,15 +82,15 @@ function ProfileScreen() {
         {profile && (
           <>
             {/* <label className="text-danger" style={{ fontFamily: "Helvetica" }}>Speed ID</label> */}
-            <input className="form-control mb-3 border-danger opacity-50 bg-danger text-white" value={profile._id} readOnly />
+            <input className="form-control mb-3 border-danger opacity-50 bg-danger text-white" value={profile._id ? profile._id : ''} readOnly />
             <label className="text-danger" style={{ fontFamily: "Helvetica" }}>Role</label>
             <input
               className="form-control mb-3 border-danger opacity-50 bg-danger text-white"
-              value={profile.role}
+              value={profile.role ? profile.role : ''}
               readOnly
             />
             <label className="text-danger" style={{ fontFamily: "Helvetica" }}>Speed Username</label>
-            <input className="form-control mb-3 border-danger opacity-50 bg-danger text-white" value={profile.username} readOnly />
+            <input className="form-control mb-3 border-danger opacity-50 bg-danger text-white" value={profile.username ? profile.username : ''} readOnly />
             <label className="text-danger" style={{ fontFamily: "Helvetica" }}>Password</label>
             <i class="bi bi-pencil text-danger ms-2"></i>
             <input

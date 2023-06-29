@@ -4,7 +4,7 @@ import DriverStandings from './driver-standings';
 import ConstructorStandings from './constructor-standings';
 import Search from './search';
 
-function Standings() {
+function Standings({ searchValue }) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -13,12 +13,12 @@ function Standings() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Search/>
       <Tabs value={value} onChange={handleChange} centered>
         <Tab label="Drivers" />
         <Tab label="Constructors" />
+        <Tab label="Search" />
       </Tabs>
-      {!value ? <DriverStandings /> : <ConstructorStandings />}
+      {value === 0 ? <DriverStandings /> : value === 1 ? <ConstructorStandings /> : <Search searchValue={searchValue} />}
     </Box>
   );
 }

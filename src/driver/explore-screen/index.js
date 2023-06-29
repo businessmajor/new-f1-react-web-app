@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
+import { useParams } from "react-router";
 import RaceStandings from "../components/standings/standings";
 import Teams from '../components/teams/Teams';
+import { useNavigate } from 'react-router';
 import "./index.css";
+import Search from '../components/standings/search';
 
 function ExploreScreen() {
+  const navigate = useNavigate();
+  const { search } = useParams();
+  if (!search){
+    navigate("explore/");
+  }
   const [activeTab, setActiveTab] = useState('Standings');
 
   return (
@@ -56,7 +64,7 @@ function ExploreScreen() {
           F1 2023 Season
         </h1>
       </div>
-      {activeTab === 'Standings' && <RaceStandings />}
+      {activeTab === 'Standings' && <RaceStandings searchValue={search}/>}
       {/* {activeTab === 'Races' && <RaceList />} */}
       {activeTab === 'Teams' && <Teams />}
     </div>

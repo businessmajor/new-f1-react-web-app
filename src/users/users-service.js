@@ -52,7 +52,7 @@ export const deleteUser = async (id) => {
   return response.data;
 };
 
-export const updateUser = async (id, user) => {
-  const response = await axios.put(`${USER_API}/${id}`, user);
+export const updateUser = async (user) => {
+  const response = await axios.post(`${BASE_API}/update`, user);
   return response.data;
 };

@@ -36,7 +36,7 @@ export const logoutThunk = createAsyncThunk("users/logout", async () => {
 export const updateUserThunk = createAsyncThunk(
   "users/updateUser",
   async (user) => {
-    const status = await userService.updateUser(user._id, user);
+    const status = await userService.updateUser( user);
     console.log(status);
     return user;
   }
