@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { profileThunk, logoutThunk, updateUserThunk, getIdProfileThunk } from "./users-thunks";
-import { useNavigate, matchPath, useParams } from "react-router";
-import * as speedsService from "../driver/speeds-service";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { profileThunk, logoutThunk, updateUserThunk, getIdProfileThunk } from './users-thunks';
+import { useNavigate, matchPath, useParams } from 'react-router';
+import * as speedsService from '../driver/speeds-service';
+
+
 
 function ProfileScreen() {
   const { uid } = useParams();
@@ -12,17 +14,14 @@ function ProfileScreen() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //const emptyProf = {role: "", username: "", password: "", firstName: "", lastName: "", email: ""}
-  //setProfile(emptyProf);
-
   let isCurrUser = true;
-  if (!currentUser || (uid && currentUser.data._id != uid)) {
+  if (!currentUser || (uid && currentUser.data._id !== uid)) {
     isCurrUser = false;
   }
 
   const handleLogout = () => {
     dispatch(logoutThunk());
-    navigate("../login");
+    navigate('../login');
   };
 
   const handleUpdate = async () => {
@@ -33,47 +32,38 @@ function ProfileScreen() {
     }
   };
 
-  // const dob = new Date(profile.dob).toISOString().split('T')[0];
-
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         if (isCurrUser) {
-          
           const { payload } = await dispatch(profileThunk());
           setProfile(payload.data);
-
         } else {
           const { payload } = await dispatch(getIdProfileThunk(uid));
           setProfile(payload.data);
         }
-
       } catch (error) {
         console.error(error);
-        navigate("/driver/login");
+        navigate('/driver/login');
       }
     };
-    const fetchMySpeeds = async () => {
-      try {
-        const tuits = await speedsService.findMySpeeds();
-        setMySpeeds(tuits);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    const fetchUser = async () => {
-      try {
 
-      } catch (error) {
+    // const fetchMySpeeds = async () => {
+    //   try {
+    //     const tuits = await speedsService.findMySpeeds();
+    //     setMySpeeds(tuits);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
 
-      }
-    }
     fetchProfile();
-    if (isCurrUser) {
-      //fetchMySpeeds();
-    }
-
+    // if (isCurrUser) {
+    //   fetchMySpeeds();
+    // }
   }, [dispatch]);
+
+  const favoriteTeam = profile.favoriteTeam || 'default';
 
   return (
     <div>

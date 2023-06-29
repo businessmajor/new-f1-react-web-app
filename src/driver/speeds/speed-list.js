@@ -36,6 +36,7 @@ const SpeedList = () => {
             username={speed.username}
             author={speed.author}
             created={speed.created}
+            team={speed.author.team}
           />
         ))
       )}

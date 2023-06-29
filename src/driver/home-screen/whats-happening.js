@@ -15,16 +15,16 @@ function WhatsHappening() {
     const [allSpeeds, setAllSpeeds] = useState([]);
     const [speedInput, setSpeedInput] = useState('');
     const dispatch = useDispatch();
-    const speedClickHandler = () => {
-        const newSpeed = {
-            topic: "f1",
-            title: "f1",
-            speed: speedInput,
-            username: "alice"
-        }
-        dispatch(createSpeedThunk(newSpeed, "64952694155b190206608300"));
-        setSpeedInput("");
-    }
+    // const speedClickHandler = () => {
+    //     const newSpeed = {
+    //         topic: "f1",
+    //         title: "f1",
+    //         speed: speedInput,
+    //         username: "alice"
+    //     }
+    //     dispatch(createSpeedThunk(newSpeed, "64952694155b190206608300"));
+    //     setSpeedInput("");
+    // }
 
     useEffect(() => {
         const fetchAllSpeeds = async () => {

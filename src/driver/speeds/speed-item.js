@@ -21,7 +21,7 @@ function SpeedItem({ speed, username, author, created }) {
                     <img
                         width={50}
                         className="float-end rounded-circle"
-                        src={require(`./f1.jpg`)}
+                        src={require(`./${author.team}.png`).default}
                         alt="prof pic"
                     />
                 </div>
