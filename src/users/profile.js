@@ -134,12 +134,12 @@ function ProfileScreen() {
               setProfile({ ...profile, dob: e.target.value })
             } */}
           {/* /> */}
-          <label className="text-danger" style={{fontFamily: "Helvetica"}}>Marrital Status</label>
+          {/* <label className="text-danger" style={{fontFamily: "Helvetica"}}>Marrital Status</label>
           <input
             className="form-control mb-3 border-danger opacity-50 bg-danger text-white"
             value={`${profile.married ? "Married" : "Not Married"}`}
             readOnly
-          />
+          /> */}
         </>
       )}
       <button onClick={handleLogout} className="btn btn-danger fw-bold mt-5 mb-3" style={{ fontFamily: "Helvetica" }}>
