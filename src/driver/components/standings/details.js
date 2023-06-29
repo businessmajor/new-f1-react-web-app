@@ -3,7 +3,7 @@ import { Box, Typography, Grid, Paper } from '@mui/material';
 import { useDriverStats } from './api/get_driver_info';
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
-import { AccountCircle, DateRange, Flag, Fingerprint, Person, VpnKey } from '@mui/icons-material';
+import { DateRange, Flag, Fingerprint, Person, VpnKey } from '@mui/icons-material';
 import { useNavigate } from 'react-router';
 import { useState } from "react";
 import { updateUserThunk } from '../../../users/users-thunks';

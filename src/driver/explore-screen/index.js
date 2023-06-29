@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { useParams } from "react-router";
+import { useParams, Link } from "react-router-dom";
 import RaceStandings from "../components/standings/standings";
 import Teams from '../components/teams/Teams';
 import { useNavigate } from 'react-router';
 import "./index.css";
-import Search from '../components/standings/search';
+import Search from '../components/search/search';
 
 function ExploreScreen() {
   const navigate = useNavigate();
   const { search } = useParams();
-  if (!search){
-    navigate("explore/");
-  }
   const [activeTab, setActiveTab] = useState('Standings');
 
   return (
@@ -21,51 +18,55 @@ function ExploreScreen() {
         <span style={{ fontStyle: "italic" }}> Formula 1</span>
       </h1>
 
-      <ul className="nav nav-pills mb-2 mt-2">
+      <ul className="nav nav-pills mb-2 mt-2 position-relative">
         <li className="nav-item me-2 text-danger">
-          <a
+          <Link
+            to="#"
             className={`nav-link ${activeTab === 'Standings' ? 'active bg-danger text-white fw-bold' : ''}`}
             onClick={() => setActiveTab('Standings')}
-            
           >
             Standings
-          </a>
+          </Link>
         </li>
         <li className="nav-item me-2 inactive">
-          <a
+          <Link
+            to="#"
             className={`nav-link ${activeTab === 'Races' ? 'active bg-danger text-white fw-bold' : ''}`}
             onClick={() => setActiveTab('Races')}
             style={{ pointerEvents: "none", opacity: "0.5" }}
           >
             Races
-          </a>
+          </Link>
         </li>
         <li className="nav-item me-2">
-          <a
+          <Link
+            to="#"
             className={`nav-link ${activeTab === 'Drivers' ? 'active bg-danger text-white fw-bold' : ''}`}
             onClick={() => setActiveTab('Drivers')}
-            style={{ pointerEvents: "none", opacity: "0.5" }}
           >
             Drivers
-          </a>
+          </Link>
         </li>
         <li className="nav-item me-2">
-          <a
+          <Link
+            to="#"
             className={`nav-link ${activeTab === 'Teams' ? 'active bg-danger text-white fw-bold' : ''}`}
             onClick={() => setActiveTab('Teams')}
           >
             Teams
-          </a>
+          </Link>
         </li>
       </ul>
-      <div className="position-relative mb-2">
+
+      <div className="position-relative">
         <img src="/images/monaco.jpeg" className="w-100" alt='Pretty background!' />
-        <h1 className="position-absolute wd-nudge-up text-white fw-bold">
-          F1 2023 Season
+        <h1 className="position-absolute top-50 start-50 translate-middle text-white fw-bold" style={{ zIndex: 1 }}>
+          {/* Content inside the image */}
         </h1>
       </div>
-      {activeTab === 'Standings' && <RaceStandings searchValue={search}/>}
-      {/* {activeTab === 'Races' && <RaceList />} */}
+
+      {activeTab === 'Standings' && <RaceStandings searchValue={search} />}
+      {activeTab === 'Drivers' && <Search />}
       {activeTab === 'Teams' && <Teams />}
     </div>
   );
