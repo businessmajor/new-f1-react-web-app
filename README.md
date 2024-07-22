@@ -7,10 +7,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm install @tanstack/react-query
 npm install @mui/material @emotion/react @emotion/styled
 
+
+Can deploy using Netlify
+
 ### Node Server: 
-
-
-
+Can build using Render
 
 ## Available Scripts
 
