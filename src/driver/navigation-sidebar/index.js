@@ -1,8 +1,8 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { BiHome, BiCompass, BiEnvelope, BiUser, BiUserPlus, BiDotsHorizontal } from "react-icons/bi";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import React from "react";
+import { BiCompass, BiEnvelope, BiHome, BiUser, BiUserPlus } from "react-icons/bi";
+import { useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import "./navigation-sidebar.css";
 
 const NavigationSidebar = () => {
