@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { useParams, Link } from "react-router-dom";
-import RaceStandings from "../components/standings/standings";
-import Teams from '../components/teams/Teams';
-import { useNavigate } from 'react-router';
-import "./index.css";
+// import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Search from '../components/search/search';
+import Standings from "../components/standings/standings";
+import "./index.css";
 
 function ExploreScreen() {
-  const navigate = useNavigate();
-  const { search } = useParams();
+  // const navigate = useNavigate();
+  // const { search } = useParams();
   const [activeTab, setActiveTab] = useState('Standings');
 
   return (
@@ -28,7 +27,7 @@ function ExploreScreen() {
             Standings
           </Link>
         </li>
-        <li className="nav-item me-2 inactive">
+        <li className="nav-item me-2">
           <Link
             to="#"
             className={`nav-link ${activeTab === 'Races' ? 'active bg-danger text-white fw-bold' : ''}`}
@@ -52,6 +51,7 @@ function ExploreScreen() {
             to="#"
             className={`nav-link ${activeTab === 'Teams' ? 'active bg-danger text-white fw-bold' : ''}`}
             onClick={() => setActiveTab('Teams')}
+            style={{ pointerEvents: "none", opacity: "0.5" }}
           >
             Teams
           </Link>
@@ -65,9 +65,11 @@ function ExploreScreen() {
         </h1>
       </div>
 
-      {activeTab === 'Standings' && <RaceStandings searchValue={search} />}
+      {/* {activeTab === 'Standings' && <RaceStandings searchValue={search} />} */}
+      {activeTab === 'Standings' && <Standings />}
       {activeTab === 'Drivers' && <Search />}
-      {activeTab === 'Teams' && <Teams />}
+      {/* {activeTab === 'Teams' && <Teams />} */}
+      {/* {activeTab === 'Races' && <Races />} */}
     </div>
   );
 }

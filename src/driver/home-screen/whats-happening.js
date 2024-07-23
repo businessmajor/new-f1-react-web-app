@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import * as speedsService from "../speeds-service";
+import React, { useEffect, useState } from "react";
 import { AiOutlinePicture } from 'react-icons/ai';
-import { HiOutlineGift } from 'react-icons/hi';
 import { BsEmojiSmile } from 'react-icons/bs';
+import { HiOutlineGift, HiOutlineLocationMarker } from 'react-icons/hi';
 import { TiCalendar } from 'react-icons/ti';
-import { HiOutlineLocationMarker } from 'react-icons/hi';
-import { createSpeedThunk } from '../speeds-thunks';
-import { useSelector, useDispatch } from "react-redux";
+import * as speedsService from "../speeds-service";
+// import { createSpeedThunk } from '../speeds-thunks';
+import { useDispatch, useSelector } from "react-redux";
 //import { Avatar } from 'mui';
 
 function WhatsHappening() {

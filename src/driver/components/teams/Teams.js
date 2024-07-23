@@ -1,10 +1,10 @@
+import { Box, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useConstructorStandings } from '../standings/api/get_constructor_standings';
 import TeamCard from './TeamCard';
-import { Container, Box, Grid, Typography } from '@mui/material';
 
 function Teams() {
-  const year = 2023;
+  const year = 2023; //lol
   const teamsQuery = useConstructorStandings(year);
 
   if (teamsQuery.isSuccess) {

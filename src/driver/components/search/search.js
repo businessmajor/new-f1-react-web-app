@@ -1,11 +1,11 @@
+import { Box, Grid, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import { Grid, Box, TextField } from '@mui/material';
-import { useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router';
 import DriversSearch from './search_results';
 
 function Search() {
   const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);

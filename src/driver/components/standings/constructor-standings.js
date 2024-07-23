@@ -1,9 +1,8 @@
+import { TableCell, TableRow } from '@mui/material';
 import React from 'react';
 import StandingsTable from '../table';
-import { TableCell, TableRow } from '@mui/material';
-import { useConstructorStandings } from './api/get_constructor_standings';
-import { Link } from 'react-router-dom';
 import ConstructorIcon from '../teams/constructor-icon';
+import { useConstructorStandings } from './api/get_constructor_standings';
 
 const ConstructorRow = ({ constructor }) => {
   const { position, Constructor, points } = constructor;
@@ -12,14 +11,15 @@ const ConstructorRow = ({ constructor }) => {
     <TableRow>
       <TableCell>{position}</TableCell>
       <TableCell>
-        <Link
+        {/* <Link
           to={`/teams/${Constructor.constructorId}`}
           className="text-inherit"
           style={{ display: 'flex', alignItems: 'center' }}
-        >
+        > */}
+
           <ConstructorIcon constructorName={Constructor.name} />
           <span style={{ marginLeft: '8px' }}>{Constructor.name}</span>
-        </Link>
+        {/* </Link> */}
       </TableCell>
       <TableCell>{points}</TableCell>
     </TableRow>
@@ -27,7 +27,8 @@ const ConstructorRow = ({ constructor }) => {
 };
 
 function ConstructorStandings() {
-  const year = 2023;
+  // god awful omg
+  const year = 2024;
   const teamRankingsQuery = useConstructorStandings(year);
 
   if (teamRankingsQuery.isSuccess) {

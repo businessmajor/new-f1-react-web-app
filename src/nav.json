@@ -1,5 +1,4 @@
 [
-  { "path": "/users", "label": "Users" },
   { "path": "/driver", "label": "Driver" },
   { "path": "/about", "label": "About" }
 ]

@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { registerThunk } from "./users-thunks";
-import { useNavigate } from "react-router";
+// import { useDispatch } from "react-redux";
+// import { registerThunk } from "./users-thunks";
+// import { useNavigate } from "react-router";
 import ConstructorIcon from '../driver/components/teams/constructor-icon';
 
 const Register = () => {
   const [user, setUser] = useState({});
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
 
   const handleRegister = async () => {
-    try {
-      setUser(user)
-      await dispatch(registerThunk(user));
-      setTimeout(() => {
-        navigate("/driver/profile");
-      }, 5000);
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   setUser(user)
+    //   await dispatch(registerThunk(user));
+    //   setTimeout(() => {
+    //     navigate("/driver/profile");
+    //   }, 5000);
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   const handlePrivilegeChange = (privilege) => {

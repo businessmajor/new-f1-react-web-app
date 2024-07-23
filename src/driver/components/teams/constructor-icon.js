@@ -1,5 +1,6 @@
 import React from 'react';
 
+// this is horrible. really need to find a better solution.
 const teams = {
     'Red Bull': '/images/team-icons/rb.png',
     'Mercedes': '/images/team-icons/mercedes.png',
@@ -15,8 +16,8 @@ const teams = {
 };
 
 const ConstructorIcon = ({ constructorName }) => {
-    const icon = teams[constructorName] || teams.default;
-    return <img src={icon} height="30px" alt={`${constructorName} Icon`} />;
+    const icon = teams.hasOwnProperty(constructorName) ? teams[constructorName] : teams.default;
+    return <img src={icon} height="30px" alt={``} />;
 };
 
 export default ConstructorIcon;

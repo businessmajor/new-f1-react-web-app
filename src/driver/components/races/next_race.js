@@ -1,7 +1,7 @@
-import React from 'react';
-import { useNextRace } from './api/get_next_race';
 import { Box, Card, Divider, Typography } from '@mui/material';
+import React from 'react';
 import CircuitFlag from '../circuits/flags';
+import { useNextRace } from './api/get_next_race';
 
 
 function NextRace() {

@@ -1,9 +1,9 @@
-import React from 'react';
-import StandingsTable from '../table';
 import { TableCell, TableRow } from '@mui/material';
-import { useDriverStandings } from './api/get_driver_standings';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import StandingsTable from '../table';
 import ConstructorIcon from '../teams/constructor-icon';
+import { useDriverStandings } from './api/get_driver_standings';
 
 const DriverRow = ({ driver }) => {
   const { position, Driver, Constructors, points } = driver;
@@ -26,7 +26,7 @@ const DriverRow = ({ driver }) => {
 };
 
 function DriverStandings() {
-  const year = 2023;
+  const year = 2024;
   const driverRankingsQuery = useDriverStandings(year);
 
   if (driverRankingsQuery.isSuccess) {

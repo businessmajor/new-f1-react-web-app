@@ -1,8 +1,8 @@
+import { Box, Button, Container, Grid, Link, TextField, Typography } from '@mui/material';
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { loginThunk } from "./users-thunks";
-import { useNavigate } from "react-router";
-import { Button, TextField, Link, Grid, Box, Typography, Container } from '@mui/material';
+// import { useDispatch } from "react-redux";
+// import { loginThunk } from "./users-thunks";
+// import { useNavigate } from "react-router";
 
 
 function Copyright(props) {
@@ -11,7 +11,7 @@ function Copyright(props) {
     //mui template
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://main--fancy-scone-d277a0.netlify.app/">
+      <Link color="inherit" href="./">
         Driver
       </Link>{' '}
       {new Date().getFullYear()}
@@ -32,16 +32,16 @@ const handleSubmit = (event) => {
 
 const Login = () => {
   const [user, setUser] = useState({});
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
 
   const handleLogin = async () => {
-    try {
-      await dispatch(loginThunk(user));
-      navigate("/driver/profile");
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   await dispatch(loginThunk(user));
+    //   navigate("/driver/profile");
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   return (

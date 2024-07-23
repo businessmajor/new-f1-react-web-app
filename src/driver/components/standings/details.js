@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
-import { Box, Typography, Grid, Paper } from '@mui/material';
+import { DateRange, Fingerprint, Flag, Person, VpnKey } from '@mui/icons-material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router";
 import { useDriverStats } from './api/get_driver_info';
-import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router";
-import { DateRange, Flag, Fingerprint, Person, VpnKey } from '@mui/icons-material';
-import { useNavigate } from 'react-router';
-import { useState } from "react";
-import { updateUserThunk } from '../../../users/users-thunks';
 
 
 const Card = ({ input, name, currentUser }) => {
@@ -40,48 +37,48 @@ const Card = ({ input, name, currentUser }) => {
     nationality = input.nationality
 
     function handleFollow() {
-        if (!currentUser) {
-            navigate(`/driver/login`);
-        }
-        if (followText === "Follow") {
-            setProfile(currentUser.data)
-            //const newdDrivers = profile.drivers.map(driver => driver)
-            const drivers = [...profile.data.drivers, name]
-            let user = profile.data;
-            const newVariable = { ...user, propertyToModify: true }
-            newVariable.drivers = [...drivers]
+        // if (!currentUser) {
+        navigate(`/driver/login`);
+        // }
+        // if (followText === "Follow") {
+        //     setProfile(currentUser.data)
+        //     //const newdDrivers = profile.drivers.map(driver => driver)
+        //     const drivers = [...profile.data.drivers, name]
+        //     let user = profile.data;
+        //     const newVariable = { ...user, propertyToModify: true }
+        //     newVariable.drivers = [...drivers]
 
 
 
-            const fetchProfile = async () => {
-                try {
-                    await dispatch(updateUserThunk(newVariable));
-                    setFollowText("Unfollow")
-                } catch (error) {
-                    console.error(error);
-                    navigate("/driver/login");
-                }
-            };
+        //     const fetchProfile = async () => {
+        //         try {
+        //             await dispatch(updateUserThunk(newVariable));
+        //             setFollowText("Unfollow")
+        //         } catch (error) {
+        //             console.error(error);
+        //             navigate("/driver/login");
+        //         }
+        //     };
 
-            fetchProfile();
-        } else {
-            const drivers = profile.data.drivers.filter((driver) => (driver != name))
-            let user = profile.data;
-            const newVariable = { ...user, propertyToModify: true }
-            newVariable.drivers = [...drivers]
+        //     fetchProfile();
+        // } else {
+        //     const drivers = profile.data.drivers.filter((driver) => (driver != name))
+        //     let user = profile.data;
+        //     const newVariable = { ...user, propertyToModify: true }
+        //     newVariable.drivers = [...drivers]
 
-            const fetchProfile = async () => {
-                try {
-                    await dispatch(updateUserThunk(newVariable));
-                    setFollowText("Unfollow")
-                } catch (error) {
-                    console.error(error);
-                    navigate("/driver/login");
-                }
-            };
+        //     const fetchProfile = async () => {
+        //         try {
+        //             await dispatch(updateUserThunk(newVariable));
+        //             setFollowText("Unfollow")
+        //         } catch (error) {
+        //             console.error(error);
+        //             navigate("/driver/login");
+        //         }
+        //     };
 
-            fetchProfile();
-        }
+        //     fetchProfile();
+        // }
 
     }
 
