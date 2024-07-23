@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import SpeedItem from "./speed-item";
-import { findAllSpeedsThunk } from "../speeds-thunks";
-import { findAllSpeeds } from "../speeds-service";
+// import { findAllSpeedsThunk } from "../speeds-thunks";
 import React, { useEffect, useState } from "react";
+import { findAllSpeeds } from "../speeds-service";
 
 const SpeedList = () => {
   const [speeds, setSpeeds] = useState([]);

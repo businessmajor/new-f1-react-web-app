@@ -1,12 +1,12 @@
+import { TableCell, TableRow } from '@mui/material';
 import React from 'react';
 import StandingsTable from '../table';
-import { TableCell, TableRow } from '@mui/material';
-import { useDriverStandings } from '../standings/api/get_driver_standings';
+// import { useDriverStandings } from '../standings/api/get_driver_standings';
 import { Link } from 'react-router-dom';
-import ConstructorIcon from '../teams/constructor-icon';
+// import ConstructorIcon from '../teams/constructor-icon';
 import { useAllDrivers } from '../standings/api/get_all_drivers';
 
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 
 const DriverRow = ({ driver }) => {
   const driverFullName = `${driver.givenName} ${driver.familyName}`;
@@ -31,7 +31,7 @@ const DriverRow = ({ driver }) => {
 };
 
 function DriversSearch({ searchValue }) {
-  const { search } = useParams();
+  // const { search } = useParams();
   const allDriversQuery = useAllDrivers();
 
   if (allDriversQuery.isSuccess) {

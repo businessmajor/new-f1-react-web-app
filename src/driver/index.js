@@ -1,21 +1,21 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import NextRace from "../driver/components/races/next_race";
+import Login from "../users/login";
 import ProfileScreen from "../users/profile";
+import ProtectedRoute from "../users/protected-route";
+import Register from "../users/register";
 import ExploreScreen from "./explore-screen";
 import HomeScreen from "./home-screen";
 import NavigationSidebar from "./navigation-sidebar";
-import ProtectedRoute from "../users/protected-route";
-import Login from "../users/login"
-import Register from "../users/register"
-import NextRace from "../driver/components/races/next_race";
-import { configureStore } from '@reduxjs/toolkit';
-import authReducer from "./reducers/auth-reducer";
-import SpeedList from "./home-screen/speed-list";
+// import { configureStore } from '@reduxjs/toolkit';
+// import authReducer from "./reducers/auth-reducer";
 import { useSelector } from "react-redux";
 import Details from "./components/standings/details";
+import SpeedList from "./home-screen/speed-list";
 // import { Provider } from "react-redux";
 // import { store } from "./store";
-const store = configureStore(
-  { reducer: { user: authReducer } });
+// const store = configureStore(
+//   { reducer: { user: authReducer } });
 
 function Driver() {
   const { currentUser } = useSelector((state) => state.users);

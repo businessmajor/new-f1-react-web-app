@@ -1,18 +1,19 @@
 import { DateRange, Fingerprint, Flag, Person, VpnKey } from '@mui/icons-material';
 import { Box, Grid, Paper, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { useDriverStats } from './api/get_driver_info';
 
 
 const Card = ({ input, name, currentUser }) => {
 
-    const [profile, setProfile] = useState(currentUser);
+    // const [profile, setProfile] = useState(currentUser);
 
     const [followText, setFollowText] = useState('Follow');
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const navigate = useNavigate()
     useEffect(() => {
@@ -27,7 +28,7 @@ const Card = ({ input, name, currentUser }) => {
     let permanentNumber = "permanentNumber"
     let nationality = "nationality"
     let dob = "dob"
-    let driver;
+    // let driver;
 
     driverId = input.driverId
     permanentNumber = input.permanentNumber
@@ -140,7 +141,8 @@ const Card = ({ input, name, currentUser }) => {
 };
 
 function Details() {
-    const { currentUser, setUser } = useSelector((state) => state.users);
+    // const { currentUser, setUser } = useSelector((state) => state.users);
+    const { currentUser } = useSelector((state) => state.users);
     const { name } = useParams();
 
     const driverDataQuery = useDriverStats(name);
